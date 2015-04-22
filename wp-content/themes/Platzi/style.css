@@ -265,7 +265,8 @@ img {
   max-width: 100%;
   border-width: 0;
   vertical-align: middle;
-  -ms-interpolation-mode: bicubic; }
+  -ms-interpolation-mode: bicubic;
+  height: auto; }
 
 /**
 * Selectores de elemento: un super "normalize":
@@ -274,7 +275,10 @@ img {
     $ELEMENTOS-FIGURE
 \*------------------------------------*/
 figure {
-  margin-bottom: 1.5em; }
+  margin-bottom: 1.5em;
+  text-align: center;
+  border: 3px solid #404040;
+  padding: 1.5em; }
   figure img {
     margin-bottom: 0.375em; }
   figure figcaption {
@@ -815,6 +819,12 @@ body {
     border: 1px solid #bfbfbf;
     border-radius: 2px;
     padding: 12px; } }
+
+.footer-negro {
+  background-color: #404040; }
+  .footer-negro li {
+    display: inline-block;
+    color: white; }
 
 /*------------------------------------*\
     $NAVEGACIÓN
