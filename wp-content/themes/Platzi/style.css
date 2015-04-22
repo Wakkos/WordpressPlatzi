@@ -820,11 +820,29 @@ body {
     border-radius: 2px;
     padding: 12px; } }
 
+.page .container__item {
+  width: 90%;
+  margin: 0 auto;
+  display: block; }
+.page.sidebar {
+  width: 68%;
+  display: table-cell; }
+
+.table {
+  display: table; }
+
+aside {
+  display: table-cell;
+  width: 72%; }
+
 .footer-negro {
   background-color: #404040; }
   .footer-negro li {
     display: inline-block;
     color: white; }
+
+.blog {
+  background-color: #ff944d; }
 
 /*------------------------------------*\
     $NAVEGACIÓN
