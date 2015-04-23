@@ -265,7 +265,8 @@ img {
   max-width: 100%;
   border-width: 0;
   vertical-align: middle;
-  -ms-interpolation-mode: bicubic; }
+  -ms-interpolation-mode: bicubic;
+  height: auto; }
 
 /**
 * Selectores de elemento: un super "normalize":
@@ -274,7 +275,9 @@ img {
     $ELEMENTOS-FIGURE
 \*------------------------------------*/
 figure {
-  margin-bottom: 1.5em; }
+  margin-bottom: 1.5em;
+  text-align: center;
+  padding: 1.5em; }
   figure img {
     margin-bottom: 0.375em; }
   figure figcaption {
@@ -816,6 +819,61 @@ body {
     border-radius: 2px;
     padding: 12px; } }
 
+.single.container__item {
+  width: 90%;
+  margin: 0 auto;
+  display: block; }
+
+.page .container__item {
+  width: 90%;
+  margin: 0 auto;
+  display: block; }
+.page.sidebar {
+  width: 68%;
+  display: table-cell; }
+
+.table {
+  display: table; }
+
+aside {
+  display: table-cell;
+  width: 72%; }
+
+.footer__landing {
+  background-color: #404040;
+  color: white; }
+  .footer__landing li {
+    display: inline-block;
+    color: white; }
+
+.footer {
+  background-color: #bfbfbf; }
+
+.blog {
+  background-color: #ff944d; }
+  .blog .container__item {
+    width: 90%;
+    margin: 0 auto 2em;
+    display: block; }
+
+main {
+  display: table; }
+  main section {
+    display: table-cell;
+    width: 68%; }
+  main aside {
+    display: table-cell;
+    width: 32%; }
+
+.sidebar {
+  display: table; }
+
+.sidebar__item {
+  display: table-cell;
+  padding: 24px; }
+  .sidebar__item a::before {
+    content: " | "; }
+
 /*------------------------------------*\
     $NAVEGACIÓN
 \*------------------------------------*/
@@ -827,8 +885,8 @@ body {
     <label for="checkbox__hack" class="checkbox-hack__label"></label>
     <!-- OMG NO SEMANTIC HTML, well, it help us to avoid JS in the menu slide in mobile -->
 
-    <nav class="nav--top">
-        <ul class="nav--top__list">
+    <nav class="nav">
+        <ul class="nav__list">
             <li><a href="">item</a></li>
             <li><a href="">item</a></li>
             <li><a href="">item</a></li>
@@ -839,48 +897,52 @@ body {
 
 * Y no te olvides de modificar las variables en el archivo de variables ($nav-**)
 */
-.nav--top {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  width: 44px;
-  height: 52.8px;
-  color: white;
-  overflow: hidden;
-  cursor: pointer;
+.nav {
   /**
    * Place a hamburger (don’t hate the player, hate the game...) icon
    * over the top of our nav element.
    */ }
-  .nav--top:after {
-    content: "☰";
-    font-size: 16px;
-    width: 1em;
-    line-height: 1;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -8px;
-    margin-left: -8px; }
 
-.nav--top__list {
+.nav__list {
+  display: table;
+  table-layout: fixed;
   list-style: none;
   margin: 0;
   padding: 0;
-  padding-top: 52.8px;
-  position: absolute;
-  top: 0;
-  left: 0;
   background-color: #dbd879;
   box-shadow: inset -100px -50px 100px 100px rgba(0, 0, 0, 0.2);
   /*
   * Usamos VW porque con % tomaría el tamaño del contenedor,
   * que es $nav-width (unos 48px) y no se ve na' e ná
   */
-  width: 200px;
-  z-index: -1; }
+  width: 100%; }
+  .nav__list li {
+    display: table-cell;
+    vertical-align: middle;
+    border-left: 1px solid #b3b300;
+    border-right: 1px solid #4d4d00;
+    text-align: center;
+    padding: 24px 0; }
+    .nav__list li a {
+      color: black; }
+
+.nav--footer__list {
+  width: 100%;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: table;
+  table-layout: fixed; }
+  .nav--footer__list li {
+    display: table-cell;
+    font-size: 0.8rem;
+    text-align: center; }
+
+.nav--blog a {
+  display: block;
+  background-color: #dbd879; }
+  .nav--blog a::before {
+    content: "-> "; }
 
 .checkbox__hack {
   display: none;
@@ -890,9 +952,9 @@ body {
   * Eso es todo, un overflow. Con eso mostramos u ocultamos el menú.
   * (Eso y el content del after para que sea una X y no la hamburguesa)
   */ }
-  .checkbox__hack:checked ~ .nav--top {
+  .checkbox__hack:checked ~ .nav {
     overflow: visible; }
-    .checkbox__hack:checked ~ .nav--top::after {
+    .checkbox__hack:checked ~ .nav::after {
       content: "x"; }
 
 .checkbox-hack__label {

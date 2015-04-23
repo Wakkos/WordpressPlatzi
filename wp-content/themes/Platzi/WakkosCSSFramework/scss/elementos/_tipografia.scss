@@ -1,0 +1,203 @@
+
+
+
+
+
+/*------------------------------------*\
+    $TIPOGRAFÍA
+\*------------------------------------*/
+
+
+// HEADINGS ====================================================
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin : 0;
+	font-family : $baseheadingfont;
+	font-weight : $baseheadingfontweight;
+	color : $baseheadingfontcolor;
+	text-rendering : optimizelegibility;
+		&.altheader {
+			color:$grey;
+			text-transform: uppercase;
+		}
+}
+
+h1 small,
+h2 small,
+h3 small {
+	font-weight : normal;
+	display: block;
+	color : $grey;
+}
+
+@each $header, $margin-bot, $font-size, $line-height in (h1, 2, 3.2, 1.2)
+                                                        (h2, 3, 2.4, 1.2)
+                                                        (h3, 4, 2.1, 1.3)
+                                                        (h4, 6, 1.8, 1.25)
+                                                        (h5, 6, 1.6, 1)
+                                                        (h6, 6, 1.4, 1){
+  #{$header}, .#{$header} {
+  	margin-bottom : $baselineheight / $margin-bot;
+  	font-size: ($font-size) * 1rem;
+  	line-height : $line-height;
+  }
+}
+// TYPOGRAFÍA ====================================================
+
+p,
+ol,
+ul,
+dl,
+address {
+	margin-bottom : $baselineheight;
+	line-height : $baselineheight;
+}
+
+.intro {
+ 	font-weight: bold;
+}
+
+small {
+	font-size: fs(x-small);
+	color: $grey;
+}
+
+ul,
+ol {
+	margin : 0 0 $baselineheight 0;
+	padding : 0 0 0 $gutterwidth;
+}
+
+li ul,
+li ol {
+	margin : 0;
+}
+
+// blockquote
+
+blockquote  {
+	margin : 0 0 $baselineheight 0;
+	padding-left : $gutterwidth;
+	border-left : 2px solid $bordercolor;
+	font-family : $altfont;
+	font-style : normal;
+	p {
+		font-size: fs(big);
+		color:$grey;
+		font-style: italic;
+	}
+}
+
+q {
+	quotes : none;
+	font-style: italic;
+}
+
+blockquote p::before,
+blockquote p::after,
+q:before,
+q:after {
+	content : "";
+}
+
+cite {
+	font-style : normal;
+}
+
+// definition lists
+
+dl,
+dd {
+	margin-bottom : $baselineheight;
+}
+
+dt {
+	font-weight : bold;
+}
+
+.dl-horizontal {
+
+	dt {
+		float : left;
+		clear : left;
+		width : 20.25%;
+		text-align : right;
+	}
+
+	dd {
+		margin-left : 22.78%;
+	}
+}
+
+// text-level
+
+abbr[title] {
+	border-bottom : 1px dotted $bordercolor;
+	cursor : help;
+}
+
+b, strong {
+	font-weight : bold;
+}
+
+dfn {
+	font-style : italic;
+}
+
+ins {
+	background-color : lighten($basecolor, 75%);
+	color : $textcolor;
+	text-decoration : none;
+}
+
+mark {
+	background-color : yellow;
+	color : $textcolor;
+}
+
+pre,
+code,
+kbd,
+samp {
+	font-family : $codefont;
+	font-size: fs(small);
+	line-height : $baselineheight;
+}
+
+pre {
+	white-space : pre;
+	white-space : pre-wrap;
+	word-wrap : break-word;
+}
+
+sub,
+sup {
+	position : relative;
+	font-size: fs(x-small);
+	line-height : 0;
+	vertical-align : $baselineheight;
+}
+
+sup {
+	top : -.5em;
+}
+
+sub {
+	bottom : -.25em;
+}
+
+
+hr {
+  clear : both;
+  display : block;
+  margin : $baselineheight * 2 0;
+  padding : 0;
+  height : 1px;
+  border : 0;
+  border-top : 1px solid $bordercolor;
+}
