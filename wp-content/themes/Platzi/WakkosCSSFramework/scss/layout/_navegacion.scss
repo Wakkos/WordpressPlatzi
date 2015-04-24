@@ -29,7 +29,7 @@
 */
 
 .nav {
-
+    width: 100%;
 
     /**
      * Place a hamburger (don’t hate the player, hate the game...) icon
@@ -41,91 +41,38 @@
     .nav__list {
       display: table;
       table-layout: fixed;
-    list-style: none;
-    margin:  0;
-    padding: 0;
+      list-style: none;
+      margin:  0;
+      padding: 0;
+      //Este padding top baja el contenido respecto a la hamburguesa
+      background-color: $basecolor;
+      box-shadow:inset -100px -50px 100px 100px rgba(0,0,0,0.2);
+      /*
+      * Usamos VW porque con % tomaría el tamaño del contenedor,
+      * que es $nav-width (unos 48px) y no se ve na' e ná
+      */
+      width: 100%;
 
-    background-color: $nav-background;
-    box-shadow:inset -100px -50px 100px 100px rgba(0,0,0,0.2);
-    /*
-    * Usamos VW porque con % tomaría el tamaño del contenedor,
-    * que es $nav-width (unos 48px) y no se ve na' e ná
-    */
-    width: 100%;
+      li {
+        display: table-row;
 
-    li {
-      display: table-cell;
-      vertical-align: middle;
-      border-left: 1px solid lighten(olive, 10);
-      border-right: 1px solid darken(olive, 10);
-      text-align: center;
-      padding: $gutterwidth 0;
-      a {
-        color: $black;
+        vertical-align: middle;
+        text-align: center;
+        border-left: 1px solid lighten($basecolor, 20);
+
+        @include respond-to(small) {
+          display: table-cell;
+        }
+
+        a {
+          display: block;
+          color: $secondary;
+          font-size: fs(x-small);
+          line-height: 1;
+          padding: .5em 0;
+        }
       }
-    }
   }
-
-.nav--footer {
-}
-
-  .nav--footer__list {
-    width: 100%;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: table;
-    table-layout: fixed;
-    li {
-      display: table-cell;
-      font-size: fs(x-small);
-      text-align: center;
-    }
-  }
-.nav--blog {
-  a {
-    display: block;
-    background-color: $secondary;
-    &::before {
-      content: "-> ";
-    }
-  }
-}
 // Ocultamos el checkbox
-     .checkbox__hack {
-        display: none;
 
-        /*
-         * Quitamos el overflow:hidden para que se muestre el menú cuando
-       * el checkbox está :checked
-         * Eso es todo, un overflow. Con eso mostramos u ocultamos el menú.
-         * (Eso y el content del after para que sea una X y no la hamburguesa)
-         */
-
-        &:checked {
-            ~ .nav {
-              overflow: visible;
-
-              &::after {
-                content:"x";
-              }
-            }
-         }
-     }
-
-
- // Estilizamos el label para que aparezca JUSTO encima de la navegación
-     .checkbox-hack__label {
-        position: absolute;
-        top:0;
-        left:0;
-        z-index: 100;
-        width:  100%;
-        height: $nav-height;
-        color: $nav-color;
-        overflow: hidden;
-        cursor: pointer;
-        margin:0;
-        z-index: 100;
-     }
 } //endif

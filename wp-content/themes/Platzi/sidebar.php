@@ -1,10 +1,10 @@
 <aside>
     <ul>
-        <li>opción 1</li>
-        <li>opción 2</li>
-        <li>opción 3</li>
-        <li>opción 4</li>
-        <li>opción 5</li>
-        <li>opción 6</li>
+        <li>Elemento 1</li>
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+        <li>Elemento 4</li>
+        <li>Elemento 5</li>
     </ul>
+    <?php include (TEMPLATEPATH . '/logo.php') ?>
 </aside>

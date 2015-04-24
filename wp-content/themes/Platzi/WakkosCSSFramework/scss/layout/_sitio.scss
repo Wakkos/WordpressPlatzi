@@ -30,7 +30,7 @@
 
 html {
 	background : $background;
-	font-size : 100%;
+	font-size : 80%;
 	-webkit-overflow-scrolling : touch;
 	-webkit-tap-highlight-color : transparent;
 	-webkit-text-size-adjust : 100%;
@@ -52,103 +52,11 @@ body {
 * y detalles que forman tu web. Disfruta!
 */
 
-
-.header {
-	padding: $gutterwidth / 2;
-	background-color: $darkgrey;
-	h1,h2 {
-		color: $white;
-	}
-}
-.container {
-	padding: $gutterwidth / 2;
-	@include respond-to(medium) {
-		padding: $gutterwidth;
-	}
-}
-
-	.container__item {
-		@include respond-to(small) {
-			display: inline-block;
-			width: 48%;
-			vertical-align: top;
-			background-color: $lightergrey;
-			border: 1px solid $lightgrey;
-			border-radius: $radius;
-			padding: $gutterwidth / 2;
-		}
-
-	}
-
-	.single.container__item{
-			width: 90%;
-			margin: 0 auto;
-			display: block;
-		}
-	.page {
-		.container__item {
-			width: 90%;
-			margin: 0 auto;
-			display: block;
-		}
-		&.sidebar {
-			width: 68%;
-			display: table-cell;
+.textwidget {
+	a {
+		margin:0 1em;
+		&::after {
+			content: " | ";
 		}
 	}
-.table {
-	display: table;
 }
-
-aside {
-	display: table-cell;
-	width: 72%;
-}
-
-.footer__landing {
-	background-color: $darkgrey;
-	color: white;
-	li {
-		display: inline-block;
-		color: $white;
-	}
-}
-
-.footer {
-	background-color: $lightgrey;
-}
-
-.blog {
-	background-color: $basecolor;
-	.container__item{
-			width: 90%;
-			margin: 0 auto 2em;
-			display: block;
-		}
-}
-
-main {
-	display: table;
-	section {
-		display: table-cell;
-		width: 68%;
-	}
-	aside {
-		display: table-cell;
-		width: 32%;
-	}
-}
-
-.sidebar {
-	display: table;
-}
-
-	.sidebar__item {
-		display: table-cell;
-		padding: $gutterwidth;
-		a {
-			&::before {
-				content: " | ";
-			}
-		}
-	}

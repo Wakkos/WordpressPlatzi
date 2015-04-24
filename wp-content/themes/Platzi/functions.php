@@ -1,56 +1,59 @@
 <?php
 
 // Esta es la función que activa las imágenes destacadas
-add_theme_support( 'post-thumbnails' );
+add_theme_support('post-thumbnails');
 
 
-// Esta es la función que nos añade un tamaño extra de imagen
-add_image_size('custom', 400, 400);
+//Esta es la función que añade un tamaño extra de imagen
+add_image_size('my-size', 200, 180, true);
 
-// Esto e sla función que llama al menú
+//Esta es la función que llama al menú
+
 function register_my_menus() {
     register_nav_menus(
-            array(
-                'menu-header' => __('Menú del encabezado'),
-                'menu-footer' => __('Menú del footer')
-                )
-        );
+        array(
+            'menu-header' => __('Menú del encabezado'),
+            'menu-footer' => __('Menú del footer'),
+            'menu-aside' => __('Menú de la barra lateral')
+        )
+    );
 }
 add_action('init', 'register_my_menus');
 
+// Activación de Sidbars
 
-// Esta es la función que añade un SIDEBAR
 
 function miplugin_register_sidebar() {
-    register_sidebar(
-        array (
-            'id' => 'sidebar-footer',
-            'name' => 'Sidebar del Footer',
-            'description' => 'Sidebar donde colocar links del footer',
-            'before_widget' => '<div class="sidebar__item">',
-            'after_widget' => '</div>',
-            'before_title' => '<strong>',
-            'after_title' => '</strong>'
+    register_sidebar (
+        array(
+            'id'    => 'footer-sidebar',
+            'name'  => 'Espacio después del footer',
+            'description' => 'Aquí van los links después del header',
+            'before_widget' => '<div class="widget">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h6>',
+            'after_title'   => '</h6>'
             )
+
         );
 }
-add_action('widgets_init', 'miplugin_register_sidebar');
+add_action('init', 'miplugin_register_sidebar');
 
-
-function miplugin_register_sidebar2() {
-    register_sidebar(
-        array (
-            'id' => 'sidebar-header',
-            'name' => 'Sidebar del header',
-            'description' => 'OTRO SIDEBAR',
-            'before_widget' => '<div class="sidebar__item">',
-            'after_widget' => '</div>',
-            'before_title' => '<strong>',
-            'after_title' => '</strong>'
+function miplugin_register_sidebar_header() {
+    register_sidebar (
+        array(
+            'id'    => 'header-sidebar',
+            'name'  => 'Espacio después del header',
+            'description' => 'Aquí van los links después del header',
+            'before_widget' => '<div class="widget__header">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h6>',
+            'after_title'   => '</h6>'
             )
+
         );
 }
-add_action('widgets_init', 'miplugin_register_sidebar2');
+add_action('init', 'miplugin_register_sidebar_header');
 
 
 add_filter( 'rwmb_meta_boxes', 'platzi_register_meta_boxes' );
@@ -69,17 +72,17 @@ function platzi_register_meta_boxes( $meta_boxes )
 
         'fields' => array(
             array(
-                'name'  => 'Full name',
-                'desc'  => 'Format: First Last',
+                'name'  => 'Nombre',
+                'desc'  => 'Escribe tu nombre',
                 'id'    => $prefix . 'fname',
                 'type'  => 'text',
-                'std'   => 'Anh Tran',
+                'std'   => 'Nombre',
                 'class' => 'custom-class',
                 'clone' => true,
             ),
             array(
-                'name'  => 'Description',
-                'desc'  => 'Introduce la descripción',
+                'name'  => 'Descripcion',
+                'desc'  => 'Describe el producto',
                 'id'    => $prefix . 'fdescription',
                 'type'  => 'textarea',
                 'std'   => 'Descripción',

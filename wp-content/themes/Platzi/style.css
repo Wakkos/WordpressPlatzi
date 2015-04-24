@@ -39,7 +39,7 @@
  *
  */
 /*------------------------------------*\
-    $Z-INDEX  
+    $Z-INDEX
 \*------------------------------------*/
 /**
  * Podemos controlar los z-index con variables más reconocibles.
@@ -78,17 +78,17 @@
 \*------------------------------------*/
 /**
  * Definimos los tamaños de fuentes:
- 
+
  */
 /*
  * Las variables de tamaño las definimos en un MAP, puedes añadir, quitar o cambiarlas.
  * Vienen dadas en REM. Esto creará una clase con el mismo nombre de la variable:
 
   .x-small { font-size: .8rem}
- 
+
  * También podemos asignar tamaños con un función llamada fs:
 
-    .selector { font-size: fs(x-small);} 
+    .selector { font-size: fs(x-small);}
 
  *
  */
@@ -265,8 +265,7 @@ img {
   max-width: 100%;
   border-width: 0;
   vertical-align: middle;
-  -ms-interpolation-mode: bicubic;
-  height: auto; }
+  -ms-interpolation-mode: bicubic; }
 
 /**
 * Selectores de elemento: un super "normalize":
@@ -275,9 +274,7 @@ img {
     $ELEMENTOS-FIGURE
 \*------------------------------------*/
 figure {
-  margin-bottom: 1.5em;
-  text-align: center;
-  padding: 1.5em; }
+  margin-bottom: 1.5em; }
   figure img {
     margin-bottom: 0.375em; }
   figure figcaption {
@@ -778,7 +775,7 @@ hr {
   width: device-width; }
 html {
   background: white;
-  font-size: 100%;
+  font-size: 80%;
   -webkit-overflow-scrolling: touch;
   -webkit-tap-highlight-color: transparent;
   -webkit-text-size-adjust: 100%;
@@ -797,81 +794,9 @@ body {
 * A partir de aquí es donde debes escribir los estilos de posicionamiento
 * y detalles que forman tu web. Disfruta!
 */
-.header {
-  padding: 12px;
-  background-color: #404040; }
-  .header h1, .header h2 {
-    color: white; }
-
-.container {
-  padding: 12px; }
-  @media (min-width: 56.25em) {
-    .container {
-      padding: 24px; } }
-
-@media (min-width: 48em) {
-  .container__item {
-    display: inline-block;
-    width: 48%;
-    vertical-align: top;
-    background-color: #e6e6e6;
-    border: 1px solid #bfbfbf;
-    border-radius: 2px;
-    padding: 12px; } }
-
-.single.container__item {
-  width: 90%;
-  margin: 0 auto;
-  display: block; }
-
-.page .container__item {
-  width: 90%;
-  margin: 0 auto;
-  display: block; }
-.page.sidebar {
-  width: 68%;
-  display: table-cell; }
-
-.table {
-  display: table; }
-
-aside {
-  display: table-cell;
-  width: 72%; }
-
-.footer__landing {
-  background-color: #404040;
-  color: white; }
-  .footer__landing li {
-    display: inline-block;
-    color: white; }
-
-.footer {
-  background-color: #bfbfbf; }
-
-.blog {
-  background-color: #ff944d; }
-  .blog .container__item {
-    width: 90%;
-    margin: 0 auto 2em;
-    display: block; }
-
-main {
-  display: table; }
-  main section {
-    display: table-cell;
-    width: 68%; }
-  main aside {
-    display: table-cell;
-    width: 32%; }
-
-.sidebar {
-  display: table; }
-
-.sidebar__item {
-  display: table-cell;
-  padding: 24px; }
-  .sidebar__item a::before {
+.textwidget a {
+  margin: 0 1em; }
+  .textwidget a::after {
     content: " | "; }
 
 /*------------------------------------*\
@@ -898,6 +823,7 @@ main {
 * Y no te olvides de modificar las variables en el archivo de variables ($nav-**)
 */
 .nav {
+  width: 100%;
   /**
    * Place a hamburger (don’t hate the player, hate the game...) icon
    * over the top of our nav element.
@@ -909,7 +835,7 @@ main {
   list-style: none;
   margin: 0;
   padding: 0;
-  background-color: #dbd879;
+  background-color: #ff944d;
   box-shadow: inset -100px -50px 100px 100px rgba(0, 0, 0, 0.2);
   /*
   * Usamos VW porque con % tomaría el tamaño del contenedor,
@@ -917,58 +843,19 @@ main {
   */
   width: 100%; }
   .nav__list li {
-    display: table-cell;
+    display: table-row;
     vertical-align: middle;
-    border-left: 1px solid #b3b300;
-    border-right: 1px solid #4d4d00;
     text-align: center;
-    padding: 24px 0; }
+    border-left: 1px solid #ffd1b3; }
+    @media (min-width: 48em) {
+      .nav__list li {
+        display: table-cell; } }
     .nav__list li a {
-      color: black; }
-
-.nav--footer__list {
-  width: 100%;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: table;
-  table-layout: fixed; }
-  .nav--footer__list li {
-    display: table-cell;
-    font-size: 0.8rem;
-    text-align: center; }
-
-.nav--blog a {
-  display: block;
-  background-color: #dbd879; }
-  .nav--blog a::before {
-    content: "-> "; }
-
-.checkbox__hack {
-  display: none;
- /*
-  * Quitamos el overflow:hidden para que se muestre el menú cuando
-* el checkbox está :checked
-  * Eso es todo, un overflow. Con eso mostramos u ocultamos el menú.
-  * (Eso y el content del after para que sea una X y no la hamburguesa)
-  */ }
-  .checkbox__hack:checked ~ .nav {
-    overflow: visible; }
-    .checkbox__hack:checked ~ .nav::after {
-      content: "x"; }
-
-.checkbox-hack__label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  width: 100%;
-  height: 52.8px;
-  color: white;
-  overflow: hidden;
-  cursor: pointer;
-  margin: 0;
-  z-index: 100; }
+      display: block;
+      color: #dbd879;
+      font-size: 0.8rem;
+      line-height: 1;
+      padding: .5em 0; }
 
 /**
 * Abstracciones y objetos

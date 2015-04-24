@@ -1,6 +1,3 @@
-<footer class="footer">
-    <strong>&copy; By Platzi</strong> <small>2015</small>
-</footer>
-<?php wp_footer(); ?>
+<small>Footer por diseñar</small>
 </body>
 </html>
